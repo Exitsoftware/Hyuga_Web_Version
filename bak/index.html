@@ -1,0 +1,131 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <title>Hyuga</title>
+        <style>
+            *{
+                margin: 0 auto;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            #main_bg{
+                background-image: url(img/pine.jpg);
+                background-size: cover;
+                background-attachment: fixed;
+                padding: 10%;
+            }
+            #main_nav{
+                color: white;
+                margin: 20px;
+                margin-right: 50px;
+            }
+            #main_nav > ul{
+                list-style: none;
+            }
+            #main_nav > ul > li{
+                color: white;
+                float: left;
+                margin: 10px;
+                font-size: 20px;
+            }
+            #logo{
+                color: white;
+                font-family: 'Poiret One';
+            }
+            #header_box{
+                color: white;
+            }
+            #header_box > h1{
+                font-size: 84px;
+                margin-bottom: 20px;
+            }
+            #header_box > p{
+                font-size: 24px;
+            }
+            #selection_box{
+                padding: 20px;
+            }
+            #selection_box > p{
+                color: gray;
+                margin-left: 20px;
+                font-size: 18px;
+            }
+            #main_contents{
+                background: #cccccc;
+                height: 1000px;
+            }
+            #btn_group{
+                padding: 20px;
+                clear: both;
+            }
+            #btn_group > ul{
+                list-style: none;
+            }
+            #btn_group > ul > li{
+                float: left;
+                margin-right: 20px;
+            }
+            .right{
+                float: right;
+            }
+            .left{
+                flex: left;
+            }
+            .btn{
+                width: 200px;
+                opacity: 0.8;
+                margin-top: 20px;
+                border-radius: 3px;
+                padding: 12px 24px 12px 24px;
+                color: #444444;
+            }
+            .btn:hover{
+                transition: 0.3s;
+                background: white;
+                background: #444444;
+                color: white;
+            }
+            .info{
+                margin-top: 30px;
+                font-size: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_nav" class="right">
+            <ul>
+                <li><a href="#">test</a></li>
+                <li><a href="#">test</a></li>
+                <li><a href="#">test</a></li>
+            </ul>
+            
+        </div>
+        <div id="main_bg">
+            
+            <div id="header_box">
+                <h1 id="logo"><a href="./welcome_page.html">Hyuga</a></h1>
+                <p>어디로 떠나고 싶나요?</p>
+            </div>
+        </div>
+        <div id="selection_box">
+            <p>여행지를 선택해주세요</p>
+            </br>
+            <div id="btn_group">
+                <ul>
+                    <li><a class="btn" href="#">대부도</a></li>
+                    <li><a class="btn" href="#">오이도</a></li>
+                    <li><a class="btn" href="#">제주도</a></li>
+                </ul>
+                
+            </div>
+            <p class="info">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
+        </div>
+        <div id="main_contents">
+            
+        </div>
+    </body>
+</html>
