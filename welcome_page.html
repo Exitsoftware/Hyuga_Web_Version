@@ -62,8 +62,7 @@
                 background: #cccccc;
             }
             #btn_group{
-                padding: 20px;
-                clear: both;
+                padding: 0 20px 20px 20px;
             }
             #btn_group > ul{
                 list-style: none;
@@ -84,6 +83,9 @@
                 padding: 15px;
                 color: #888888;
             }
+            #footer > p{
+                font-family: 'nanumgothic';
+            }
             .right{
                 float: right;
             }
@@ -91,9 +93,10 @@
                 flex: left;
             }
             .btn{
-                width: 200px;
+                text-align: center;
+                width: 52px;
                 opacity: 0.8;
-                margin-top: 20px;
+                margin-bottom: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
                 color: #444444;
@@ -105,9 +108,10 @@
                 color: white;
             }
             .danger{
-                width: 200px;
+                text-align: center;
+                width: 52px;
                 opacity: 0.8;
-                margin-top: 20px;
+                margin-bottom: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
                 color: #444444;
@@ -116,6 +120,19 @@
                 transition: 0.3s;
                 background: white;
                 background: #882222;
+                color: white;
+            }
+            .btn_next{
+                background: #96bc99;
+                width: 80%;
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                padding: 12px 24px 12px 24px;
+                border-radius: 3px;
+            }
+            .btn_next:hover{
+                transition: 0.3s;
                 color: white;
             }
             .sub_info{
@@ -145,7 +162,10 @@
         </style>
     </head>
     <body>
+        
+        
         <div id="main_nav" class="right">
+            
             <ul>
                 <li><a href="#">test</a></li>
                 <li><a href="#">test</a></li>
@@ -165,13 +185,14 @@
             </br>
             <div id="btn_group">
                 <ul>
-                    <li><a class="btn" href="#">대부도</a></li>
-                    <li><a class="danger" href="#">오이도</a></li>
-                    <li><a class="danger" href="#">제주도</a></li>
+                    <li><a href="#"><div class="btn">대부도</div></a></li>
+                    <li><a href="#"><div class="danger">오이도</div></a></li>
+                    <li><a href="#"><div class="danger">제주도</div></a></li>
+                    
                 </ul>
                     
             </div>
-            <p class="sub_info">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
+            <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
         </div>
         <div id="main_contents">
             <div class="card">    
@@ -187,9 +208,11 @@
                 <p>plain text</p>
 
             </div>
+            <a class="btn_next" href="./item.html">다음단계</a>
         </div>
         <div id="footer">
             Hyuga Inc.
+            <p style="font-size:12px;margin-top:5px;">Hanyang University, ERICA</p>
         </div>    
     </body>
 </html>
