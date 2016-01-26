@@ -77,6 +77,15 @@
             #main_contents{
                 padding: 20px;
             }
+            #money_nav{
+                z-index: 2;
+                width: 100%;
+                position: fixed;
+                background: white;
+                padding: 20px 40px 20px 40px;
+                box-shadow:0 1px 2px #aaa;
+
+            }
             #footer{
                 font-size: 24px;
                 font-family: 'Poiret One';
@@ -125,7 +134,7 @@
                 color: white;
             }
             .btn_next{
-                background: #96bc99;
+                background: #77bc77;
                 width: 80%;
                 display: block;
                 text-align: center;
@@ -168,6 +177,9 @@
         </script>
     </head>
     <body>
+        <div id="money_nav"> 
+            <h3>현재 금액 :  원</h3>
+        </div>
         <div id="main_nav" class="right">
             <ul>
                 <li><a href="#">test</a></li>
@@ -215,7 +227,7 @@
                 <p>plain text</p>
 
             </div>
-            <a class="btn_next" href="./item.html">다음단계</a>
+            <a class="btn_next" href="#">다음단계</a>
         </div>
         <div id="footer">
             Hyuga Inc.

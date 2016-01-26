@@ -17,6 +17,7 @@
                 color: white;
             }
             #main_bg{
+                
                 background-image: url(img/pine.jpg);
                 background-size: cover;
                 background-attachment: fixed;
@@ -62,6 +63,7 @@
                 background: #cccccc;
             }
             #btn_group{
+                z-index: 1;
                 padding: 0 20px 20px 20px;
             }
             #btn_group > ul{
@@ -73,6 +75,18 @@
             }
             #main_contents{
                 padding: 20px;
+            }
+            #money_nav{
+                z-index: 2;
+                width: 100%;
+                position: fixed;
+                background: white;
+                padding: 20px 40px 20px 40px;
+                box-shadow:0 1px 2px #aaa;
+
+            }
+            #money_nav > h3{
+                color: #888888;
             }
             #footer{
                 font-size: 24px;
@@ -123,7 +137,7 @@
                 color: white;
             }
             .btn_next{
-                background: #96bc99;
+                background: #77bc77;
                 width: 80%;
                 display: block;
                 text-align: center;
@@ -163,7 +177,9 @@
     </head>
     <body>
         
-        
+        <div id="money_nav"> 
+            <h3>현재 금액 :  원</h3>
+        </div>
         <div id="main_nav" class="right">
             
             <ul>
@@ -187,10 +203,8 @@
                 <ul>
                     <li><a href="#"><div class="btn">대부도</div></a></li>
                     <li><a href="#"><div class="danger">오이도</div></a></li>
-                    <li><a href="#"><div class="danger">제주도</div></a></li>
-                    
+                    <li><a href="#"><div class="danger">제주도</div></a></li>    
                 </ul>
-                    
             </div>
             <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
         </div>
@@ -208,7 +222,7 @@
                 <p>plain text</p>
 
             </div>
-            <a class="btn_next" href="./item.html">다음단계</a>
+            <a class="btn_next" href="./es_item_view.html">다음단계</a>
         </div>
         <div id="footer">
             Hyuga Inc.
