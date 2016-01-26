@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
+        <script src="//code.jquery.com/jquery.min.js"></script>
         
         <title>Hyuga</title>
         <style>
@@ -25,7 +26,9 @@
             }
             #main_nav{
                 color: white;
-                margin: 20px;
+/*                margin: 20px;*/
+                margin-top: 80px;
+                margin-bottom: 80px;
                 margin-right: 50px;
             }
             #main_nav > ul{
@@ -38,6 +41,7 @@
                 font-size: 20px;
             }
             #logo{
+                margin-top: 40px;
                 color: white;
                 font-family: 'Poiret One';
             }
@@ -80,13 +84,14 @@
                 z-index: 2;
                 width: 100%;
                 position: fixed;
-                background: white;
+                background: #314570;
                 padding: 20px 40px 20px 40px;
                 box-shadow:0 1px 2px #aaa;
-
+                color: white;
+                opacity: 0.8;
             }
             #money_nav > h3{
-                color: #888888;
+/*                color: #888888;*/
             }
             #footer{
                 font-size: 24px;
@@ -174,6 +179,11 @@
             }
             
         </style>
+        <script>
+            $(document).ready(function(){
+               $("#logo").slideDown("slow");
+            });
+        </script>
     </head>
     <body>
         

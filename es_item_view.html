@@ -26,7 +26,9 @@
             }
             #main_nav{
                 color: white;
+                
                 margin: 20px;
+                margin-top: 80px;
                 margin-right: 50px;
             }
             #main_nav > ul{
@@ -39,6 +41,7 @@
                 font-size: 20px;
             }
             #logo{
+                margin-top: 40px;
                 color: white;
                 font-family: 'Poiret One';
             }
@@ -81,9 +84,11 @@
                 z-index: 2;
                 width: 100%;
                 position: fixed;
-                background: white;
+                background: #314570;
                 padding: 20px 40px 20px 40px;
                 box-shadow:0 1px 2px #aaa;
+                color: white;
+                opacity: 0.8;
 
             }
             #footer{
@@ -170,6 +175,22 @@
                 color: #666666;
                 margin: 25px;
             }
+            .item{
+                padding: 20px;
+                margin: 20px;   
+            }
+            .input_number{
+                width: 40px;
+                text-align: center;
+                font-size: 18px;
+            }
+            .price{
+                margin: 30px;
+                clear:both;
+                text-align:right;
+                font-size: 18px;
+                
+            }
             
         </style>
         <script>
@@ -214,19 +235,28 @@
            
         </div>
         <div id="main_contents">
+            
             <div class="card">    
-                <img src="http://placehold.it/800x300" width="100%" class="left">
-                <h3>Title 제목</h3>
-                <p>plain text</p>
+                <h1 style="text-align:center; margin:40px; margin:80px; color:#444444;">영수증</h1>
+                </hr>
+                <div class="item">
+                    <h3 class="left" style="display:inline">Item 이름</h3>
+                    <div class="right">
+                        <input class="input_number" type="number"></input>
+                        <span>개</span>
+                    </div>
+                    <strong><div class="price">3,000원</div></strong>
+                </div>
+                <div class="item">
+                    <h3 class="left" style="display:inline">Item 이름</h3>
+                    <div class="right">
+                        <input class="input_number" type="number"></input>
+                        <span>개</span>
+                    </div>
+                    <strong><div class="price">3,000원</div></strong>
+                </div>
             </div>
-            <div class="card">
-                
-                <img src="http://placehold.it/800x300" width="100%" class="left">
-
-                <h3>Title 제목</h3>
-                <p>plain text</p>
-
-            </div>
+            
             <a class="btn_next" href="#">다음단계</a>
         </div>
         <div id="footer">
