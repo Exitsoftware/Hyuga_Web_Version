@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
-        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        
         
         <title>Hyuga</title>
         <style>
@@ -18,17 +19,16 @@
                 color: white;
             }
             #main_bg{
-                
-                background-image: url(img/pine.jpg);
+                background-image: url(img/market.jpg);
                 background-size: cover;
                 background-attachment: fixed;
                 padding: 10%;
             }
             #main_nav{
                 color: white;
-/*                margin: 20px;*/
+                
+                margin: 20px;
                 margin-top: 80px;
-                margin-bottom: 80px;
                 margin-right: 50px;
             }
             #main_nav > ul{
@@ -67,8 +67,8 @@
                 background: #cccccc;
             }
             #btn_group{
-                z-index: 1;
                 padding: 0 20px 20px 20px;
+                
             }
             #btn_group > ul{
                 list-style: none;
@@ -89,9 +89,7 @@
                 box-shadow:0 1px 2px #aaa;
                 color: white;
                 opacity: 0.8;
-            }
-            #money_nav > h3{
-/*                color: #888888;*/
+
             }
             #footer{
                 font-size: 24px;
@@ -112,42 +110,39 @@
                 flex: left;
             }
             .btn{
-                text-align: center;
                 width: 52px;
+                text-align: center;
                 opacity: 0.8;
                 margin-bottom: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
-                box-shadow:0 1px 2px #aaa;
                 color: #444444;
             }
             .btn:hover{
                 transition: 0.3s;
                 background: white;
-                background: #444444;
-                box-shadow:0 1px 2px #aaa;
+                background: #314570;
                 color: white;
             }
             .danger{
-                text-align: center;
-                width: 52px;
+                width: 200px;
                 opacity: 0.8;
-                margin-bottom: 20px;
+                margin-top: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
-                box-shadow:0 1px 2px #aaa;
                 color: #444444;
             }
             .danger:hover{
                 transition: 0.3s;
                 background: white;
                 background: #882222;
+                box-shadow:0 1px 2px #aaa;
                 color: white;
             }
-            .btn_prev{
+             .btn_prev{
                 box-shadow:0 1px 2px #aaa;
                 background: #882222;
-/*                width: 35%;*/
+/*                width: 40%;*/
                 text-align: center;
                 margin-top: 20px;
                 margin-bottom: 20px;
@@ -161,7 +156,7 @@
             .btn_next{
                 box-shadow:0 1px 2px #aaa;
                 background: #77bc77;
-/*                width: 35%;*/
+/*                width: 40%;*/
                 text-align: center;
                 margin-top: 20px;
                 margin-bottom: 20px;
@@ -174,6 +169,7 @@
                 color: white;
             }
             .sub_info{
+                
                 text-align: right;
                 padding: 20px;
                 font-size: 14px;
@@ -196,21 +192,33 @@
                 color: #666666;
                 margin: 25px;
             }
+            .item{
+                padding: 20px;
+                margin: 20px;   
+            }
+            .input_number{
+                width: 40px;
+                text-align: center;
+                font-size: 18px;
+            }
+            .price{
+                margin: 30px;
+                clear:both;
+                text-align:right;
+                font-size: 18px;
+                
+            }
             
         </style>
         <script>
-            $(document).ready(function(){
-               $("#logo").slideDown("slow");
-            });
+
         </script>
     </head>
     <body>
-        
         <div id="money_nav"> 
             <h3>현재 금액 :  원</h3>
         </div>
         <div id="main_nav" class="right">
-            
             <ul>
                 <li><a href="#">test</a></li>
                 <li><a href="#">test</a></li>
@@ -222,38 +230,38 @@
             
             <div id="header_box">
                 <h1 id="logo"><a href="./index.html">Hyuga</a></h1>
-                <p>어디로 떠나고 싶나요?</p>
+                <p>에서 무엇을 샀나요?</p>
             </div>
         </div>
         <div id="selection_box">
-            <p class="info">여행지를 선택해주세요</p>
-            </br>
-            <div id="btn_group">
-                <ul>
-                    <li><a href="#"><div class="btn">대부도</div></a></li>
-                    <li><a href="#"><div class="danger">오이도</div></a></li>
-                    <li><a href="#"><div class="danger">제주도</div></a></li>    
-                </ul>
-            </div>
-            <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
+            <p class="info">실제 금액을 계산해주세요.</p>
+
         </div>
         <div id="main_contents">
+            
             <div class="card">    
-                <img src="http://placehold.it/800x300" width="100%" class="left">
-                <h3>Title 제목</h3>
-                <p>plain text</p>
-            </div>
-            <div class="card">
-                
-                <img src="http://placehold.it/800x300" width="100%" class="left">
-
-                <h3>Title 제목</h3>
-                <p>plain text</p>
-
+                <h1 style="text-align:center; margin:40px; margin:80px; color:#444444;">영수증</h1>
+                </hr>
+                <div class="item">
+                    <h3 class="left" style="display:inline">Item 이름</h3>
+                    <div class="right">
+                        <input class="input_number" type="number"></input>
+                        <span>개</span>
+                    </div>
+                    <strong><div class="price">3,000원</div></strong>
+                </div>
+                <div class="item">
+                    <h3 class="left" style="display:inline">Item 이름</h3>
+                    <div class="right">
+                        <input class="input_number" type="number"></input>
+                        <span>개</span>
+                    </div>
+                    <strong><div class="price">3,000원</div></strong>
+                </div>
             </div>
             <div style="width:80%;">
-                <a href="./event_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
-                <a href="./es_item_view.html"><div class="btn_next" style="float:right;">다음 단계</div></a>
+                <a href="./es_item_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
+                <a href="#"><div class="btn_next" style="float:right;">다음 단계</div></a>
             </div>
             <div style="clear:both;"></div>
         </div>

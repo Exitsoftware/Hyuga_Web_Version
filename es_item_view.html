@@ -116,12 +116,14 @@
                 margin-bottom: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
+                box-shadow:0 1px 2px #aaa;
                 color: #444444;
             }
             .btn:hover{
                 transition: 0.3s;
                 background: white;
                 background: #314570;
+                box-shadow:0 1px 2px #aaa;
                 color: white;
             }
             .danger{
@@ -132,24 +134,37 @@
                 padding: 12px 24px 12px 24px;
                 color: #444444;
             }
+            
             .danger:hover{
                 transition: 0.3s;
                 background: white;
                 background: #882222;
+                box-shadow:0 1px 2px #aaa;
                 color: white;
             }
-            .btn_next{
-                background: #77bc77;
-                width: 80%;
-                display: block;
+             .btn_prev{
+                box-shadow:0 1px 2px #aaa;
+                background: #882222;
+/*                width: 40%;*/
                 text-align: center;
                 margin-top: 20px;
+                margin-bottom: 20px;
                 padding: 12px 24px 12px 24px;
                 border-radius: 3px;
             }
-            .btn_next:hover{
+            .btn_prev:hover{
                 transition: 0.3s;
                 color: white;
+            }
+            .btn_next{
+                box-shadow:0 1px 2px #aaa;
+                background: #77bc77;
+/*                width: 40%;*/
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 12px 24px 12px 24px;
+                border-radius: 3px;
             }
             .sub_info{
                 
@@ -256,8 +271,11 @@
                     <strong><div class="price">3,000원</div></strong>
                 </div>
             </div>
-            
-            <a class="btn_next" href="#">다음단계</a>
+            <div style="width:80%;">
+                <a href="./pension_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
+                <a href="./real_item_view.html"><div class="btn_next" style="float:right;">다음 단계</div></a>
+            </div>
+            <div style="clear:both;"></div>
         </div>
         <div id="footer">
             Hyuga Inc.
