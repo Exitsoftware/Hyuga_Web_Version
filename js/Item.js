@@ -1,5 +1,5 @@
 
-var app = angular.module("Hyuga",[]);
+var app = angular.module("Hyuga",['ngCookies']);
 //원 단위 세자리씩 끊기 filter
 app.filter('currencywon', function(){
 	return function(w) {
@@ -27,7 +27,9 @@ app.filter('currencywon', function(){
 		}
 	};
 });
-app.controller('ItemSelected',function($scope, $http){
+app.controller('ItemSelected',function($scope, $http, $cookies){
+    $scope.pensionprice = $cookies.get("price");
+    
     $scope.itemlist=[]; $http.get("js/parse_emart.json").success(function(data){
         $scope.items = data;
     });
@@ -51,18 +53,18 @@ app.controller('PensionPostsCtrlAjax', function($scope, $http){
             return a.cost < b.cost ? -1 : a.cost > b.cost ? 1 : 0;
         });*/
     });
-})
-app.controller('PensionSelected',function($scope,$http){
+});
+app.controller('PensionSelected',function($scope,$http,$cookies){
     $scope.showMe = false;
     $scope.pensionprice = 0;
     $scope.sum = 0;
     $scope.myFunc = function() {
         $scope.showMe = true;
-        $scope.pensionprice = $scope.p.cost;
         $cookies.put("price", $scope.pensionprice);
     };
     $scope.addSum = function(p) {
         $scope.pensionprice = p.cost;
         $scope.sum += $scope.pensionprice;
     };
-})
+});
+
