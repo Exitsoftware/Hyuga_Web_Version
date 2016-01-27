@@ -293,7 +293,7 @@
         </div>
         <div id="main_contents" id="ng-app" ng-controller="PensionPostsCtrlAjax">
             <div class="card" ng-repeat="p in posts" ng-click="myFunc()">
-                <img src='{{p.thumb}}' width="100%" class="left">
+                <img src='{{p.thumb}}' width="128px" class="left">
                 <h3><a href='{{p.url}}'  style="color:#888888">{{p.name}}</a></h3> 
                 <p>{{p.people}} {{p.cost}}원 ({{p.location}})</p>
             </div>
