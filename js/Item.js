@@ -68,3 +68,7 @@ app.controller('PensionSelected',function($scope,$http,$cookies){
     };
 });
 
+app.controller('Real_item_ctrl', function($scope, $http, $cookies){
+    $scope.pensionprice = $cookies.get("price");
+    
+});
