@@ -209,20 +209,24 @@
             
         </style>
         <script>
+            
+            var make_item = function(val_text){
+                var input_text = '<div class="item">';
+                   input_text += '<h3 class="left" style="display:inline">' + val_text+ '</h3>';
+                   input_text += '<div class="right">';
+                   input_text += '<input class="input_number" type="number"></input>';
+                   input_text += '<span>개</span>';
+                   input_text += '</div>';
+                   input_text += '<strong><div class="price">3,000원</div></strong>';
+                   input_text += '</div>';
+                return input_text;
+            }
+            
+            
             $(document).ready(function(){
                $('.btn').click(function(){
                    var val_text = $(this).text();
-                   var input_text = '<div class="item">';
-                   input_text = '<h3 class="left" style="display:inline">'
-                
-                   $('.card').append('<div class="item">');
-                   $('.card').append('<h3 class="left" style="display:inline">'+val_text+'</h3>');
-                   $('.card').append('<div class="right">');
-                   $('.card').append('<input class="input_number" type="number"></input>');
-                   $('.card').append('<span>개</span>');
-                   $('.card').append('</div>');
-                   $('.card').append('<strong><div class="price">3,000원</div></strong>');
-                   $('.card').append('</div>');
+                   $('.card').append(make_item(val_text));
                });
             });
         </script>
@@ -251,12 +255,12 @@
             </br>
             <div id="btn_group">
                 <ul>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
-                    <li><a href="#"><div class="btn">오겹살</div></a></li>
-                    <li><a href="#"><div class="btn">칠겹살</div></a></li>
-                    <li><a href="#"><div class="btn">오골계</div></a></li>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">삼겹살</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">오겹살</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">칠겹살</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">오골계</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">삼겹살</div></a></li>
+                    <li><a href="#selection_box"><div class="btn">삼겹살</div></a></li>
                 </ul>
                     
             </div>
@@ -269,6 +273,7 @@
             <div class="card">    
                 <h1 style="text-align:center; margin:40px; margin:80px; color:#444444;">영수증</h1>
                 </hr>
+<!--
                 <div class="item">
                     <h3 class="left" style="display:inline">Item 이름</h3>
                     <div class="right">
@@ -285,6 +290,7 @@
                     </div>
                     <strong><div class="price">3,000원</div></strong>
                 </div>
+-->
             </div>
             <div style="width:80%;">
                 <a href="./pension_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
