@@ -254,10 +254,10 @@
             });
         </script>
     </head>
-    <body>
+    <body ng-app="Pension" ng-controller="PensionSelected">
         
         <div id="money_nav"> 
-            <h3>현재 금액 :  원</h3>
+            <h3>현재 금액 : {{pensionprice}}원</h3>
         </div>
         <div class="danger_info">
             해당기능은 아직 지원되지 않습니다.
@@ -291,10 +291,9 @@
             </div>
             <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
         </div>
-        <div id="main_contents" id="ng-app" ng-app="Pension" ng-controller="PensionPostsCtrlAjax">
-            <div class="card" ng-repeat="p in posts">    
-                <!--
-                <img src='{{p.url}}' width="100%" class="left"> -->
+        <div id="main_contents" id="ng-app" ng-controller="PensionPostsCtrlAjax">
+            <div class="card" ng-repeat="p in posts" ng-click="myFunc()">
+                <img src='{{p.thumb}}' width="100%" class="left">
                 <h3><a href='{{p.url}}'  style="color:#888888">{{p.name}}</a></h3> 
                 <p>{{p.people}} {{p.cost}}원 ({{p.location}})</p>
             </div>
@@ -315,7 +314,7 @@
             -->
             <div style="width:80%;">
                 <a href="./event_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
-                <a href="./es_item_view.html"><div class="btn_next" style="float:right;">다음 단계</div></a>
+                <a href="./es_item_view.html"><div class="btn_next" style="float:right;" ng-show="showMe">다음 단계</div></a>
             </div>
             <div style="clear:both;"></div>
         </div>

@@ -71,9 +71,9 @@ app1.directive('ItemCard',function(){
     }
 })
 
+var sum = 0;
 TotalSum = function (ItemList) {
     "use strict";
-    var sum = 0;
     for (var i = ItemList.length - 1; i >= 0; i--) {
         sum += ItemList[i]
     };
@@ -131,13 +131,22 @@ var app2 = angular.module("Pension",[]);
     }
 })*/
 app2.controller('PensionPostsCtrlAjax', function($scope, $http){
-    $http({method: 'POST', url: 'js/parse_inn.json'}).success(function(data){
+    $http({method: 'POST', url: 'js/parse_inn(1).json'}).success(function(data){
         $scope.posts = data;
     });
 })
+/*
 app2.directive('pensionCard',function(){
     return {
         restrict: 'EA',
         template: 'Item_Card.html'
+    }
+})*/
+app2.controller('PensionSelected',function($scope,$http){
+    $scope.showMe = false;
+    $scope.pensionprice = 0;
+    $scope.myFunc = function() {
+        $scope.showMe = !$scope.showMe;
+        $scope.pensionprice = $scope.p.cost;
     }
 })
