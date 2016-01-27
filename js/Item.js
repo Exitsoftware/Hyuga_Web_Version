@@ -133,6 +133,7 @@ var app2 = angular.module("Pension",[]);
 app2.controller('PensionPostsCtrlAjax', function($scope, $http){
     $http({method: 'POST', url: 'js/parse_inn.json'}).success(function(data){
         $scope.posts = data;
+        /*
         $scope.posts_people = data.sort(function (a, b) {
             "use strict";
             return a.people < b.people ? -1 : a.people > b.people ? 1 : 0;
@@ -140,7 +141,7 @@ app2.controller('PensionPostsCtrlAjax', function($scope, $http){
         $scope.posts_cost = data.sort(function (a, b) {
             "use strict";
             return a.cost < b.cost ? -1 : a.cost > b.cost ? 1 : 0;
-        });
+        });*/
     });
 })
 /*
