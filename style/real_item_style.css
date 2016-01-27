@@ -103,6 +103,11 @@ a{
     right: 72px;
     bottom: 24px;
 }
+#price_view{
+    margin : 30px 0px 30px 0px;
+    color: #444444;
+    
+}
 .btn_arrow{
     border-radius: 3px;
     background: white;
@@ -123,17 +128,17 @@ a{
     flex: left;
 }
 .btn{
-    width: 52px;
+/*    width: 52px;*/
     text-align: center;
     opacity: 0.8;
     margin-bottom: 20px;
     border-radius: 3px;
-    padding: 12px 24px 12px 24px;
+    padding: 12px 11px 12px 11px;
     color: #444444;
+    box-shadow:0 1px 2px #aaa;
 }
 .btn:hover{
     transition: 0.3s;
-    background: white;
     background: #314570;
     color: white;
 }
@@ -220,4 +225,18 @@ a{
     text-align:right;
     font-size: 18px;
 
+}
+.input_area{
+    text-align: center;
+}
+.input_area > input{
+    color: #888888;
+    font-size: 18px;
+    width: 70%;
+    padding: 10px;
+    margin-top: 10px;
+}
+input{
+    border-radius: 3px;
+    border: 1px solid #888888;
 }
