@@ -131,7 +131,7 @@ var app2 = angular.module("Pension",[]);
     }
 })*/
 app2.controller('PensionPostsCtrlAjax', function($scope, $http){
-    $http({method: 'POST', url: 'js/parse_inn(1).json'}).success(function(data){
+    $http({method: 'POST', url: 'js/parse_inn.json'}).success(function(data){
         $scope.posts = data;
     });
 })
