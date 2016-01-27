@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
-        <link rel="stylesheet" href="http://cdn.jsdelivr.net/xeicon/1.0.4/xeicon.min.css">
         <script src="http://code.jquery.com/jquery.min.js"></script>
         
         
@@ -91,27 +90,6 @@
             #footer > p{
                 font-family: 'nanumgothic';
             }
-            #arrow_down{
-                right: 24px;
-                bottom: 24px;
-            }
-            #arrow_up{
-                right: 72px;
-                bottom: 24px;
-            }
-            .btn_arrow{
-                border-radius: 3px;
-                background: white;
-                padding: 10px;
-                position: fixed;
-                color: #555555;
-                box-shadow:0 1px 2px #aaa;
-                opacity: 0.5;
-            }
-            .btn_arrow:hover{
-                transition: 0.3s;
-                opacity: 1;
-            }
             .right{
                 float: right;
             }
@@ -140,12 +118,15 @@
                 margin-top: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
-                color: #444444;
+                background: #882222;
+                color: white;
+                text-align: center;
+                box-shadow:0 1px 2px #aaa;
             }
             .danger:hover{
                 transition: 0.3s;
                 background: white;
-                background: #882222;
+                
                 color: white;
             }
             .btn_next{
@@ -185,6 +166,16 @@
             .card > div.contents{
                 color: #666666;
             }
+            input{
+                width: 80%;
+                padding: 10px;
+                font-size: 18px;
+                color: #888888;
+                border-radius: 3px;
+                border: 1px solid #888888;
+                box-shadow:0 1px 2px #aaa;
+                margin: 10px;   
+            }
             
             
         </style>
@@ -209,53 +200,28 @@
             </div>
         </div>
         <div id="selection_box">
-            <p class="info">일정을 생성하세요</p>
-            </br>
-            <div id="btn_group">
-                <ul>
-                    <li><a href="./create_view.html"><div class="btn">생성</div></a></li>
-                </ul>    
-            </div>
+            <p class="info">일정 생성하기</p>
+
             <div style="clear:both"></div>
         </div>
         <div id="main_contents">
             <div class="card">
-                <div class="contents">
-                    <h3 class="left" style="display:inline">Person name</h3>
-                    <h4 class="right">2016/01/01</h4>
+                <h1 style="color:#888888; text-align:center;">정보 입력</h1>
+                <div style="text-align:center;">
+                    <input type="text" placeholder="제목">
+                    <input type="text" placeholder="총무 이름">
+                    <input type="date">
                 </div>
-                <h1>Plan name</h1>
+                </br>
+                </br>
+                <div style="clear:both;"></div>
+                <a href="#"><div class="btn" style="width:50%">생성</div></a>
+                <a href="./event_view.html"><div class="danger" style="width:50%">취소</div></a>
             </div>
-            <div class="card">
-                <div class="contents">
-                    <h3 class="left" style="display:inline">Person name</h3>
-                    <h4 class="right">2016/01/01</h4>
-                </div>
-                <h1>Plan name</h1>
-            </div>
-            <div class="card">
-                <div class="contents">
-                    <h3 class="left" style="display:inline">Person name</h3>
-                    <h4 class="right">2016/01/01</h4>
-                </div>
-                <h1>Plan name</h1>
-            </div>
-            
-            <a class="btn_next" href="./pension_view.html">다음단계</a>
         </div>
         <div id="footer">
             Hyuga Inc.
             <p style="font-size:12px;margin-top:5px;">Hanyang University, ERICA</p>
         </div>    
-        <a href="#">
-            <div id ="arrow_up"class="btn_arrow">
-                <i class="xi-arrow-up"></i>
-            </div>
-        </a>
-        <a href="#footer">
-            <div id="arrow_down"class="btn_arrow">
-                <i class="xi-arrow-down"></i>
-            </div>
-        </a>
     </body>
 </html>

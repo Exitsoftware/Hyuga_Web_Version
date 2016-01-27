@@ -1,68 +1,37 @@
-var app1 = angular.module("Item",['firebase']);
-app1.controller("Ctrl1",function($scope,$firebaseArray,$http){/*
-    function Item(name, number, price) {
-        "use strict";
-        this.name = name;
-        this.number = number;
-        this.price = price;
+var app1 = angular.module("Item",[]);
+//app1.filter('currencywon', function(){
+//	return function(w) {
+//		if(w.length<4) {
+//			return w+'₩'
+//		}else {
+//			// var str = String(w);
+//			// str = str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+//			// return str + "₩";
+//			var empty = "";
+//			var str = String(w);
+//			var strlen = str.length-1;
+//			var cnt = 0;
+//			for(var i = strlen; i>=0;i—) {
+//				if(cnt%3==0 && cnt!=0) {
+//					empty = str[i] + "," + empty;
+//					cnt = cnt+1;
+//				}else {
+//					empty =  str[i] + empty;
+//					cnt = cnt+1;	
+//				}
+//				
+//			}
+//			return empty+'₩';
+//		}
+//	};
+//});
 
-        this.setName = function (name) {
-            this.name = name;
-        };
-        this.getName = function () {
-            return name;
-        };
-        this.setNumber = function (number) {
-            this.number = number;
-        };
-        this.getNumber = function () {
-            return number;
-        };
-        this.setPrice = function (price) {
-            this.price = price;
-        };
-        this.getPrice = function () {
-            return price;
-        };
-
-        this.getNumPrice = function () {
-            return price * number;
-        };
-    }*/
-    $scope.Item;
-    $scope.ItemArr = [];
-    var firebaseURL ="";
-    $scope.getList = function() {
-        var echoRef = new Firebase(firebaseURL);
-        var query = echoRef
-        $scope.ItemArr = $firebaseArray(query);
-    }
-    $scope.add = function() {
-        $scope.ItemArr.$add({
-            name : $scope.name,
-            number : $scope.number,
-            price : $scope.price
-        });
-    };
-    $scope.remove = function (Item) {
-        $scope.ItemArr.$remove(Item);
-    }
-})
 angular.module('textInputExample', [])
     .controller('ExampleController', ['$scope', function($scope) {
       $scope.number = {
         count: 1
       };
 }]);
-
-function ItemPostsCtrlAjax($scope,$http){
-    $http({
-        method: 'POST',
-        item: 'js/parse_emart.json'
-    }).success(function(data){
-        $scope.items = JSON.parse(data);
-    });
-}
 
 app1.directive('ItemCard',function(){
     return {
@@ -71,15 +40,28 @@ app1.directive('ItemCard',function(){
     }
 })
 
+app1.controller('ItemSelected',function($scope, $http){
+    $scope.itemlist=[];
+    $http.get("js/parse_emart.json").success(function(data){
+        $scope.items = data;
+    });
+    
+    $scope.getitem = function(i) {
+        console.log($scope.itemlist);
+        $scope.itemlist.push(i);
+        console.log($scope.itemlist);
+    };
+});
+/*
 var sum = 0;
-TotalSum = function (ItemList) {
+ItemTotalSum = function (ItemList) {
     "use strict";
     for (var i = ItemList.length - 1; i >= 0; i--) {
         sum += ItemList[i]
     };
     return sum;
 }
-
+*/
 var app2 = angular.module("Pension",[]);
 /*app2.controller("Ctrl2", function($scope,$){
     function Pension(photoURL, name, number, price, day) {
@@ -154,12 +136,13 @@ app2.directive('pensionCard',function(){
 app2.controller('PensionSelected',function($scope,$http){
     $scope.showMe = false;
     $scope.pensionprice = 0;
+    $scope.sum = 0;
     $scope.myFunc = function() {
         $scope.showMe = true;
         $scope.pensionprice = $scope.p.cost;
-    }
+    };
     $scope.addSum = function(p) {
         $scope.pensionprice = p.cost;
-        sum += $scope.pensionprice;
-    }
+        $scope.sum += $scope.pensionprice;
+    };
 })

@@ -9,7 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
-        <script src="//code.jquery.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/xeicon/1.0.4/xeicon.min.css">
+        <script src="http://code.jquery.com/jquery.min.js"></script>
         
         <title>Hyuga</title>
         <style>
@@ -109,6 +110,28 @@
             #footer > p{
                 font-family: 'nanumgothic';
             }
+            #arrow_down{
+                right: 24px;
+                bottom: 24px;
+            }
+            #arrow_up{
+                right: 72px;
+                bottom: 24px;
+            }
+            .btn_arrow{
+                z-index: 12;
+                border-radius: 3px;
+                background: white;
+                padding: 10px;
+                position: fixed;
+                color: #555555;
+                box-shadow:0 1px 2px #aaa;
+                opacity: 0.5;
+            }
+            .btn_arrow:hover{
+                transition: 0.3s;
+                opacity: 1;
+            }
             .right{
                 float: right;
             }
@@ -192,6 +215,9 @@
                 margin: 20px auto;
                 border-radius:3px;
             }
+            .card:hover{
+                background: #dddddd;
+            }
             .card > h3{
                 color: #444444;
                 margin: 20px;
@@ -200,11 +226,31 @@
                 color: #666666;
                 margin: 25px;
             }
-            
+            .danger_info{
+/*                top:62px;*/
+                z-index: 3;
+                bottom: 0px;
+                position: fixed;
+                width: 100%;
+                background: #882222;
+                padding: 20px 40px 20px 40px;
+                color: white;
+                opacity: 0.8;
+                font-size: 14px;
+            }
         </style>
         <script>
             $(document).ready(function(){
-               $("#logo").slideDown("slow");
+                $("#money_nav").hide();
+                $(".danger_info").hide();
+                $("#money_nav").slideDown("slow");
+                
+                $(".danger").click(function(){
+                    $(".danger_info").slideDown("fast").delay(800).fadeOut(400);
+                    
+                    
+                });
+                
             });
         </script>
     </head>
@@ -212,6 +258,9 @@
         
         <div id="money_nav"> 
             <h3>현재 금액 : {{pensionprice}}원</h3>
+        </div>
+        <div class="danger_info">
+            해당기능은 아직 지원되지 않습니다.
         </div>
         <div id="main_nav" class="right">
             
@@ -235,8 +284,9 @@
             <div id="btn_group">
                 <ul>
                     <li><a href="#"><div class="btn">대부도</div></a></li>
-                    <li><a href="#"><div class="danger">오이도</div></a></li>
-                    <li><a href="#"><div class="danger">제주도</div></a></li>    
+                    <li><a><div class="danger">오이도</div></a></li>
+                    <li><a><div class="danger">남이섬</div></a></li>   
+                    <li><a><div class="danger">제주도</div></a></li>    
                 </ul>
             </div>
             <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
@@ -244,7 +294,7 @@
         <div id="main_contents" id="ng-app" ng-controller="PensionPostsCtrlAjax">
             <div ng-repeat="p in posts" ng-click="myFunc()" >
                 <div class="card" ng-click="addSum(p);">
-                    <img src='{{p.thumb}}' width="100%" class="left">
+                    <img src='{{p.thumb}}' width="128px" class="left">
                     <h3><a href='{{p.url}}'  style="color:#888888">{{p.name}}</a></h3> 
                     <p>{{p.people}} {{p.cost}}원 ({{p.location}})</p>
                 </div>
@@ -273,6 +323,17 @@
         <div id="footer">
             Hyuga Inc.
             <p style="font-size:12px;margin-top:5px;">Hanyang University, ERICA</p>
-        </div>    
+        </div>
+        
+        <a href="#">
+            <div id ="arrow_up"class="btn_arrow">
+                <i class="xi-arrow-up"></i>
+            </div>
+        </a>
+        <a href="#footer">
+            <div id="arrow_down"class="btn_arrow">
+                <i class="xi-arrow-down"></i>
+            </div>
+        </a>
     </body>
 </html>
