@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
-        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
         
         
         <title>Hyuga</title>
@@ -19,16 +19,14 @@
                 color: white;
             }
             #main_bg{
-                background-image: url(img/beaf.jpg);
+                background-image: url(img/plan.jpg);
                 background-size: cover;
                 background-attachment: fixed;
                 padding: 10%;
             }
             #main_nav{
                 color: white;
-                
                 margin: 20px;
-                margin-top: 80px;
                 margin-right: 50px;
             }
             #main_nav > ul{
@@ -41,7 +39,6 @@
                 font-size: 20px;
             }
             #logo{
-                margin-top: 40px;
                 color: white;
                 font-family: 'Poiret One';
             }
@@ -66,6 +63,7 @@
             #main_contents{
                 background: #cccccc;
             }
+            
             #btn_group{
                 padding: 0 20px 20px 20px;
                 
@@ -79,17 +77,6 @@
             }
             #main_contents{
                 padding: 20px;
-            }
-            #money_nav{
-                z-index: 2;
-                width: 100%;
-                position: fixed;
-                background: #314570;
-                padding: 20px 40px 20px 40px;
-                box-shadow:0 1px 2px #aaa;
-                color: white;
-                opacity: 0.8;
-
             }
             #footer{
                 font-size: 24px;
@@ -116,14 +103,13 @@
                 margin-bottom: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
-                box-shadow:0 1px 2px #aaa;
                 color: #444444;
+                box-shadow:0 1px 2px #aaa;
             }
             .btn:hover{
                 transition: 0.3s;
                 background: white;
                 background: #314570;
-                box-shadow:0 1px 2px #aaa;
                 color: white;
             }
             .danger{
@@ -132,39 +118,30 @@
                 margin-top: 20px;
                 border-radius: 3px;
                 padding: 12px 24px 12px 24px;
-                color: #444444;
+                background: #882222;
+                color: white;
+                text-align: center;
+                box-shadow:0 1px 2px #aaa;
             }
-            
             .danger:hover{
                 transition: 0.3s;
                 background: white;
-                background: #882222;
-                box-shadow:0 1px 2px #aaa;
-                color: white;
-            }
-             .btn_prev{
-                box-shadow:0 1px 2px #aaa;
-                background: #882222;
-/*                width: 40%;*/
-                text-align: center;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                padding: 12px 24px 12px 24px;
-                border-radius: 3px;
-            }
-            .btn_prev:hover{
-                transition: 0.3s;
+                
                 color: white;
             }
             .btn_next{
-                box-shadow:0 1px 2px #aaa;
                 background: #77bc77;
-/*                width: 40%;*/
+                width: 80%;
+                display: block;
                 text-align: center;
                 margin-top: 20px;
-                margin-bottom: 20px;
                 padding: 12px 24px 12px 24px;
                 border-radius: 3px;
+                box-shadow:0 1px 2px #aaa;
+            }
+            .btn_next:hover{
+                transition: 0.3s;
+                color: white;
             }
             .sub_info{
                 
@@ -182,55 +159,31 @@
                 margin: 20px auto;
                 border-radius:3px;
             }
-            .card > h3{
+            .card > h1{
                 color: #444444;
-                margin: 20px;
-            }
-            .card > p{
-                color: #666666;
-                margin: 25px;
-            }
-            .item{
-                padding: 20px;
-                margin: 20px;   
-            }
-            .input_number{
-                width: 40px;
-                text-align: center;
-                font-size: 18px;
-            }
-            .price{
                 margin: 30px;
-                clear:both;
-                text-align:right;
-                font-size: 18px;
-                
             }
+            .card > div.contents{
+                color: #666666;
+            }
+            input{
+                width: 80%;
+                padding: 10px;
+                font-size: 18px;
+                color: #888888;
+                border-radius: 3px;
+                border: 1px solid #888888;
+                box-shadow:0 1px 2px #aaa;
+                margin: 10px;   
+            }
+            
             
         </style>
         <script>
-            $(document).ready(function(){
-               $('.btn').click(function(){
-                   var val_text = $(this).text();
-                   var input_text = '<div class="item">';
-                   input_text = '<h3 class="left" style="display:inline">'
-                
-                   $('.card').append('<div class="item">');
-                   $('.card').append('<h3 class="left" style="display:inline">'+val_text+'</h3>');
-                   $('.card').append('<div class="right">');
-                   $('.card').append('<input class="input_number" type="number"></input>');
-                   $('.card').append('<span>개</span>');
-                   $('.card').append('</div>');
-                   $('.card').append('<strong><div class="price">3,000원</div></strong>');
-                   $('.card').append('</div>');
-               });
-            });
+            
         </script>
     </head>
     <body>
-        <div id="money_nav"> 
-            <h3>현재 금액 :  원</h3>
-        </div>
         <div id="main_nav" class="right">
             <ul>
                 <li><a href="#">test</a></li>
@@ -243,54 +196,28 @@
             
             <div id="header_box">
                 <h1 id="logo"><a href="./index.html">Hyuga</a></h1>
-                <p>에서 뭘 먹고 싶나요?</p>
+                <p>를 계획해보세요</p>
             </div>
         </div>
         <div id="selection_box">
-            <p class="info">먹거리를 선택해주세요</p>
-            </br>
-            <div id="btn_group">
-                <ul>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
-                    <li><a href="#"><div class="btn">오겹살</div></a></li>
-                    <li><a href="#"><div class="btn">칠겹살</div></a></li>
-                    <li><a href="#"><div class="btn">오골계</div></a></li>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
-                    <li><a href="#"><div class="btn">삼겹살</div></a></li>
-                </ul>
-                    
-            </div>
-            <br>
-             <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '삼겹살'만 지원합니다.</p>
-           
+            <p class="info">일정 생성하기</p>
+
+            <div style="clear:both"></div>
         </div>
         <div id="main_contents">
-            
-            <div class="card">    
-                <h1 style="text-align:center; margin:40px; margin:80px; color:#444444;">영수증</h1>
-                </hr>
-                <div class="item">
-                    <h3 class="left" style="display:inline">Item 이름</h3>
-                    <div class="right">
-                        <input class="input_number" type="number"></input>
-                        <span>개</span>
-                    </div>
-                    <strong><div class="price">3,000원</div></strong>
+            <div class="card">
+                <h1 style="color:#888888; text-align:center;">정보 입력</h1>
+                <div style="text-align:center;">
+                    <input type="text" placeholder="제목">
+                    <input type="text" placeholder="총무 이름">
+                    <input type="date">
                 </div>
-                <div class="item">
-                    <h3 class="left" style="display:inline">Item 이름</h3>
-                    <div class="right">
-                        <input class="input_number" type="number"></input>
-                        <span>개</span>
-                    </div>
-                    <strong><div class="price">3,000원</div></strong>
-                </div>
+                </br>
+                </br>
+                <div style="clear:both;"></div>
+                <a href="#"><div class="btn" style="width:50%">생성</div></a>
+                <a href="./event_view.html"><div class="danger" style="width:50%">취소</div></a>
             </div>
-            <div style="width:80%;">
-                <a href="./pension_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
-                <a href="./real_item_view.html"><div class="btn_next" style="float:right;">다음 단계</div></a>
-            </div>
-            <div style="clear:both;"></div>
         </div>
         <div id="footer">
             Hyuga Inc.
