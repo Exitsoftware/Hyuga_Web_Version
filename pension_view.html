@@ -1,5 +1,9 @@
 <!Doctype html>
 <html>
+    <!-- Min VS original -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script> 
+    <!-- Angular -->
+    <script src="js/Item.js"> </script>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
@@ -237,7 +241,14 @@
             </div>
             <p class="sub_info" style="clear:both">현재는 beta서비스이므로 '대부도'만 지원합니다.</p>
         </div>
-        <div id="main_contents">
+        <div id="main_contents" id="ng-app" ng-app="Pension" ng-controller="PensionPostsCtrlAjax">
+            <div class="card" ng-repeat="p in posts">    
+                <!--
+                <img src='{{p.url}}' width="100%" class="left"> -->
+                <h3><a href='{{p.url}}'  style="color:#888888">{{p.name}}</a></h3> 
+                <p>{{p.people}} {{p.cost}}원 ({{p.location}})</p>
+            </div>
+            <!--
             <div class="card">    
                 <img src="http://placehold.it/800x300" width="100%" class="left">
                 <h3>Title 제목</h3>
@@ -251,6 +262,7 @@
                 <p>plain text</p>
 
             </div>
+            -->
             <div style="width:80%;">
                 <a href="./event_view.html"><div class="btn_prev" style="float:left;">이전 단계</div></a>
                 <a href="./es_item_view.html"><div class="btn_next" style="float:right;">다음 단계</div></a>

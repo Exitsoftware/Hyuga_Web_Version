@@ -1,0 +1,5 @@
+<div class="card" ng-repeat="p in Posts" id="ng-app" ng-app ng-controller="PensionPostsCtrlAjax">    
+	<img src=\'{{p.url}}\' width="100%" class="left"> 
+	<h3>{{p.name}}</h3> 
+	<p>{{p.people}}명 {{p.cost}}원 ({{p.location}})</p>
+</div>
