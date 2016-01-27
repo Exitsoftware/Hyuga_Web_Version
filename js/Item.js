@@ -1,6 +1,7 @@
-var app1 = angular.module("Item",[]);
+
+var app = angular.module("Hyuga",[]);
 //원 단위 세자리씩 끊기 filter
-app1.filter('currencywon', function(){
+app.filter('currencywon', function(){
 	return function(w) {
 		if(w.length<4) {
 			return w;
@@ -26,7 +27,7 @@ app1.filter('currencywon', function(){
 		}
 	};
 });
-app1.controller('ItemSelected',function($scope, $http){
+app.controller('ItemSelected',function($scope, $http){
     $scope.itemlist=[]; $http.get("js/parse_emart.json").success(function(data){
         $scope.items = data;
     });
@@ -36,8 +37,8 @@ app1.controller('ItemSelected',function($scope, $http){
         console.log($scope.itemlist);
     };
 });
-var app2 = angular.module("Pension",[]);
-app2.controller('PensionPostsCtrlAjax', function($scope, $http){
+
+app.controller('PensionPostsCtrlAjax', function($scope, $http){
     $http({method: 'POST', url: 'js/parse_inn.json'}).success(function(data){
         $scope.posts = data;
         /*
@@ -51,13 +52,14 @@ app2.controller('PensionPostsCtrlAjax', function($scope, $http){
         });*/
     });
 })
-app2.controller('PensionSelected',function($scope,$http){
+app.controller('PensionSelected',function($scope,$http){
     $scope.showMe = false;
     $scope.pensionprice = 0;
     $scope.sum = 0;
     $scope.myFunc = function() {
         $scope.showMe = true;
         $scope.pensionprice = $scope.p.cost;
+        $cookies.put("price", $scope.pensionprice);
     };
     $scope.addSum = function(p) {
         $scope.pensionprice = p.cost;
