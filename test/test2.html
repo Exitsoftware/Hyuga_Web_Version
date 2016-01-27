@@ -1,0 +1,34 @@
+<!Doctype html>
+<html >
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+        
+        <script type="text/javascript" src="factory.js"></script>
+        <title>test2</title>
+        <script>
+//            var app = angular.module("test", []);
+            
+            
+            app.controller("Ctrl", function($scope, $cookies){
+                
+//                alert(myFactory.get());
+                $scope.text = "hello";
+                
+                $scope.move = function(){
+                    $cookies.put("name", $scope.text);
+//                    myFactory.set($scope.text);
+//                    alert(myFactory.get());
+                    window.location.href = './test1.html';
+                }
+                
+            });
+            
+        </script>
+    </head>
+    <body ng-app="test" ng-controller="Ctrl">
+        <input ng-model="text" type="text">
+        <div>{{text}}</div>
+        <button ng-click="move();">hello</button>
+    </body>
+</html>

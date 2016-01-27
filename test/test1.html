@@ -1,0 +1,43 @@
+<!Doctype html>
+<html >
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+
+        <script type="text/javascript" src="factory.js"></script>
+        <title>test1</title>
+        <script>
+            
+            app.controller("Ctrl2", function($scope, $cookies){
+                
+                $scope.text = $cookies.get("name");
+//                $scope.text = " ??";
+                $scope.move = function(){
+                    alert("?");
+                    window.location.href = './test1.html';
+                }
+                
+            });
+//            app.factory('myFactory', function(){
+//                var savedData = "sibal";
+//                
+//                function set(data){
+//                    savedData = data;
+//                }
+//                
+//                function get(){
+//                    return savedData;
+//                }
+//                
+//                return{
+//                    set: set, 
+//                    get: get
+//                }
+//            })
+        </script>
+    </head>
+    <body ng-app="test" ng-controller="Ctrl2">
+        <h1>test!</h1>
+        <h1>{{text}}</h1>
+    </body>
+</html>
