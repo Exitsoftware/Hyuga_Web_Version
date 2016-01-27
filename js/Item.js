@@ -4,7 +4,7 @@ var app = angular.module("Hyuga",['ngCookies']);
 app.filter('currencywon', function(){
 	return function(w) {
 		if(w.length<4) {
-			return w;
+			return w+"원(100g)";
 		}else {
 			// var str = String(w);
 			// str = str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
@@ -23,7 +23,7 @@ app.filter('currencywon', function(){
 				}
 				
 			}
-			return empty;
+			return empty+"원(100g)";
 		}
 	};
 });
