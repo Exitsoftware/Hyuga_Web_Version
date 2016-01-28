@@ -25,7 +25,8 @@
     </head>
     <body ng-app="Hyuga" ng-controller="Real_item_ctrl">
         <div id="money_nav"> 
-            <h3>현재 금액 : {{pensionprice | currencynow}}</h3>
+            <h3>현재 금액 : {{totalprice | currencynow}}</h3>
+            <h3>예상 금액 : {{pensionprice | currencynow}}</h3>
         </div>
         <div id="main_nav" class="right">
             <ul>

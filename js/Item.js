@@ -121,6 +121,8 @@ app.controller('PensionSelected',function($scope,$http,$cookies){
 });
 
 app.controller('Real_item_ctrl', function($scope, $http, $cookies){
+    $scope.totalprice = parseInt($cookies.get("price").replace(/\,/g,''));
+    
     $scope.pensionprice = parseInt($cookies.get("PensionAndItem"));
     
     $scope.getItemList = $cookies.get("ItemList");
@@ -130,7 +132,7 @@ app.controller('Real_item_ctrl', function($scope, $http, $cookies){
         $scope.name = $scope.product_name;
         $scope.count = $scope.product_cnt;
         $scope.price = $scope.product_price * $scope.product_cnt;
-        $scope.pensionprice = $scope.pensionprice + $scope.price;
+        $scope.totalprice = $scope.totalprice + $scope.price;
         
         $scope.Arr.push([$scope.name,$scope.price,$scope.count]);
         console.log($scope.Arr);
