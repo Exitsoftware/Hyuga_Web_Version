@@ -23,7 +23,7 @@
     </head>
     <body ng-app="Hyuga" ng-controller="ItemSelected">
         <div id="money_nav"> 
-            <h3>현재 금액 : {{totalItemPrice}}원</h3>
+            <h3>현재 금액 : {{totalItemPrice | currencynow}}</h3>
         </div>
         <div id="main_nav" class="right">
             <ul>
