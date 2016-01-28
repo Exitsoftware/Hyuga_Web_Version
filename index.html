@@ -6,6 +6,17 @@
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel='stylesheet' type="text/css">
         <script src="http://code.jquery.com/jquery.min.js"></script>
+		
+		
+		<!-- Angular JS -->
+		<script src="lib/angular.min.js"></script>  
+<script src="lib/angularfire.min.js"></script>
+<script src="lib/jquery-2.2.0.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+				
+		<script src="js/FBLogin.js"></script>
+		
+		
             <link rel="stylesheet" href="./style/index_style.css">
 
         <title>Welcome to Hyuga</title>
@@ -14,7 +25,7 @@
             
         </style>
     </head>
-    <body>
+    <body ng-app="login" ng-controller="Ctrl">
         <div id="bg">
             <div id="header_box">
                 <div id="logo">
@@ -27,8 +38,11 @@
                 </div>
             </div>
             <div id="main_contents">
-                <a class="btn_facebook" href="./event_view.html" style="display:block">
+                <a class="btn_facebook" ng-href="#" style="display:block" ng-click="FBLogin()" ng-hide="$authData">
                    facebook 로그인
+                </a>
+				<a class="btn_facebook" ng-href="./event_view.html" style="display:block" ng-show="$authData">
+					들어가기
                 </a>
                 <a class="btn" href="#" style="display:block">
                     Hyuga 이용방법
@@ -40,7 +54,5 @@
             Hyuga Inc.
             <p style="font-size:12px;margin-top:5px;">Hanyang University, ERICA</p>
         </div>    
-        
-        
     </body>
 </html>

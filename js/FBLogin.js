@@ -1,4 +1,4 @@
-var app = angular.module("test", ['firebase']);
+var app = angular.module("login", ['firebase']);
 app.controller("Ctrl", function($scope, $firebaseArray){
 	$scope.name;
 	$scope.crew;
@@ -11,6 +11,37 @@ app.controller("Ctrl", function($scope, $firebaseArray){
 	$scope.real_itemName = "";
 	
 	var firebaseURL = "https://testobject.firebaseio.com/";
+	
+	$scope.getPensionList = function() {
+		var pensionRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/pension');
+		$scope.pensionArr = $firebaseArray(pensionRef);
+	};
+	
+	$scope.getEsItemList = function(){
+		var esItemRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/es_itemList');
+		$scope.esItemArr = $firebaseArray(esItemRef);
+	};
+	
+	$scope.getRealItemList = function(){
+		var realItemRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/real_itemList');
+		$scope.realItemArr = $firebaseArray(realItemRef);
+	};
+	
+	$scope.getName = function(){
+		var nameRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/events').child($scope.name);
+		$scope.name = nameRef.key();
+	};
+	
+	$scope.getCrew = function(){
+		var crewRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/events').child($scope.crew);
+		$scope.crew = crewRef.key();
+	};
+	
+	$scope.getDate = function(){
+		var dateRef = new firebaseURL(firebaseURL + $scope.$authData['uid'] + '/events').child(0);
+		var key = dateRef.date();
+		$scope.date = key;
+	};
 	
 	//setter method
 	$scope.es_setItem = function(es_itemName, es_itemCost, es_itemNumber){
@@ -67,7 +98,9 @@ app.controller("Ctrl", function($scope, $firebaseArray){
 		});
 	};
 	
-/*	//getter method
+/*	still developing..
+
+	//getter method
 	$scope.es_getItem = function(es_itemName){
 		$scope.name = itemRef.child(item_name).toString();
 		var reference = new Firebase(firebaseURL + $scope.$authData['uid'] + "/");
@@ -124,31 +157,38 @@ app.controller("Ctrl", function($scope, $firebaseArray){
 	};
 	*/
 	$scope.init = function() {
-		var reference = new Firebase(firebaseURL + $scope.$authData['uid'] + "/");
-		reference.push({
-			name: "",
-			crew: 0,
-			date: ""
-		});
-		var pensionRef = reference.child('pension');
-		pensionRef.push({
-			pension_name: "",
-			pension_people: 0,
-			pension_cost: 0
-		});
-		var es_itemRef = reference.child("es_itemList").child($scope.es_itemName);
-		es_itemRef.push({
-			item_name: "",
-			item_cost: 0,
-			item_number: 0
-		});
-		var real_itemRef = reference.child("real_itemList").child($scope.real_itemName);
-		real_itemRef.push({
-			item_name: "",
-			item_cost: 0,
-			item_number: 0
+		var reference = new Firebase(firebaseURL + $scope.$authData['uid'] + "/events/");
+		reference.once("value", function(Snapshot){
+			if(!Snapshot.hasChildren()){
+				reference.push({
+					name: "",
+					crew: 0,
+					date: ""
+				});
+				var pensionRef = reference.child('pension');
+				pensionRef.push({
+					pension_name: "",
+					pension_people: 0,
+					pension_cost: 0
+				});
+				var es_itemRef = reference.child("es_itemList");
+				es_itemRef.push({
+					item_name: "",
+					item_cost: 0,
+					item_number: 0
+				});
+				var real_itemRef = reference.child("real_itemList");
+				real_itemRef.push({
+					item_name: "",
+					item_cost: 0,
+					item_number: 0
+				});
+			}
 		});
 	};
+	
+	
+	
 	$scope.FBLogin = function () {
       var ref = new Firebase(firebaseURL);
       ref.authWithOAuthPopup("facebook", function(error, authData) {
@@ -161,7 +201,7 @@ app.controller("Ctrl", function($scope, $firebaseArray){
       		console.log("Authenticated successfully with payload:", authData);
 		  
       // do something with the login info
-//			$scope.init();
+			$scope.init();
 	  }
 	 });
 	};
