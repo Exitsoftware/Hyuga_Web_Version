@@ -61,6 +61,7 @@ app.controller('ItemSelected',function($scope, $http, $cookies){
     $scope.updateTotal = function(){
         $scope.totalItemPrice = parseInt($cookies.get("price").replace(/\,/g,''));
         $scope.totalItemPrice += $scope.totalsum;
+        $cookies.put("PensionAndItem",$scope.totalItemPrice);
     }
 });
 
