@@ -27,6 +27,32 @@ app.filter('currencywon', function(){
 		}
 	};
 });
+app.filter('currencynow', function(){
+	return function(w) {
+		if(w.length<4) {
+			return w+"원";
+		}else {
+			// var str = String(w);
+			// str = str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+			// return str + "₩";
+			var empty = "";
+			var str = String(w);
+			var strlen = str.length-1;
+			var cnt = 0;
+			for(var i = strlen; i>=0;i--) {
+				if(cnt%3==0 && cnt!=0) {
+					empty = str[i] + "," + empty;
+					cnt = cnt+1;
+				}else {
+					empty =  str[i] + empty;
+					cnt = cnt+1;	
+				}
+				
+			}
+			return empty+"원";
+		}
+	};
+});
 app.controller('ItemSelected',function($scope, $http, $cookies){
     $scope.pensionprice = $cookies.get("price");
     $scope.count=1;
@@ -62,6 +88,7 @@ app.controller('ItemSelected',function($scope, $http, $cookies){
         $scope.totalItemPrice = parseInt($cookies.get("price").replace(/\,/g,''));
         $scope.totalItemPrice += $scope.totalsum;
         $cookies.put("PensionAndItem",$scope.totalItemPrice);
+        $cookies.put("ItemList",$scope.itemlist);
     }
 });
 
@@ -94,13 +121,16 @@ app.controller('PensionSelected',function($scope,$http,$cookies){
 });
 
 app.controller('Real_item_ctrl', function($scope, $http, $cookies){
-    $scope.pensionprice = $cookies.get("price");
+    $scope.pensionprice = parseInt($cookies.get("PensionAndItem"));
+    
+    $scope.getItemList = $cookies.get("ItemList");
+    
     $scope.Arr = [];
     $scope.product_add= function() {
         $scope.name = $scope.product_name;
         $scope.count = $scope.product_cnt;
         $scope.price = $scope.product_price * $scope.product_cnt;
-        
+        $scope.pensionprice = $scope.pensionprice + $scope.price;
         
         $scope.Arr.push([$scope.name,$scope.price,$scope.count]);
         console.log($scope.Arr);
