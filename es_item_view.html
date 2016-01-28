@@ -85,7 +85,7 @@
                     <div style="clear:both;"></div>
                     <strong><div class="price">{{j.price|currencywon}}</div></strong>
                 </div>
-                <strong><div class="price" style="margin:30px; font-size:22px;"ng-click="updateTotal();">{{totalsum}} 원</div></strong>
+                <strong><div class="price" style="margin:30px; font-size:22px;"ng-click="updateTotal();">{{totalsum | currencynow}}</div></strong>
 <!--
                 <div class="item">
                     <h3 class="left" style="display:inline">Item 이름</h3>
