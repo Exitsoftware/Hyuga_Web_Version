@@ -70,5 +70,14 @@ app.controller('PensionSelected',function($scope,$http,$cookies){
 
 app.controller('Real_item_ctrl', function($scope, $http, $cookies){
     $scope.pensionprice = $cookies.get("price");
-    
+    $scope.Arr = [];
+    $scope.product_add= function() {
+        $scope.name = $scope.product_name;
+        $scope.count = $scope.product_cnt;
+        $scope.price = $scope.product_price * $scope.product_cnt;
+        
+        
+        $scope.Arr.push([$scope.name,$scope.price,$scope.count]);
+        console.log($scope.Arr);
+    }
 });
