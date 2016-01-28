@@ -215,7 +215,9 @@ a{
     font-size: 18px;
 }
 .price{
-    margin: 30px;
+    margin-top: 10px;
+/*    margin-bottom: 10px;*/
+    color: #444444;
     clear:both;
     text-align:right;
     font-size: 14px;
