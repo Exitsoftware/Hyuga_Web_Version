@@ -23,7 +23,7 @@
     </head>
     <body ng-app="Hyuga" ng-controller="ItemSelected">
         <div id="money_nav"> 
-            <h3>현재 금액 : {{pensionprice}}원</h3>
+            <h3>현재 금액 : {{totalItemPrice}}원</h3>
         </div>
         <div id="main_nav" class="right">
             <ul>
@@ -71,12 +71,15 @@
 
                     <h3 class="left" style="display:inline">{{j.item}}</h3>
                     <div class="right">
-                        <input class="input_number" type="number"></input>
+                        <input class="input_number" type="number" min="1" ng-model="count" ng-click="plusplus($index,count*j.price);"></input>
                         <span>개</span>
+                        <a ng-click="deleteItem($index)" style="color:black">x</a>
+                        <strong><div class="price">{{count*j.price}}원</div></strong>
                     </div>
                     <div style="clear:both;"></div>
                     <strong><div class="price">{{j.price|currencywon}}</div></strong>
                 </div>
+                <strong><div class="price" ng-click="updateTotal();">{{totalsum}}</div></strong>
 <!--
                 <div class="item">
                     <h3 class="left" style="display:inline">Item 이름</h3>

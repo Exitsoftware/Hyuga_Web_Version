@@ -29,15 +29,39 @@ app.filter('currencywon', function(){
 });
 app.controller('ItemSelected',function($scope, $http, $cookies){
     $scope.pensionprice = $cookies.get("price");
+    $scope.count=1;
+    $scope.totalItemPrice = parseInt($cookies.get("price").replace(/\,/g,''));
     
-    $scope.itemlist=[]; $http.get("js/parse_emart.json").success(function(data){
+    $scope.eachsum=[];
+    $scope.totalsum=0;
+    
+    $scope.itemlist=[]; 
+    $http.get("js/parse_emart.json").success(function(data){
         $scope.items = data;
     });
     $scope.getitem = function(i) {
-        console.log($scope.itemlist);
         $scope.itemlist.push(i);
-        console.log($scope.itemlist);
     };
+    $scope.plusplus = function(index,number){
+        $scope.eachsum[index]=number;
+        $scope.totalsum=0;
+        for(var k=0;k<$scope.eachsum.length;k++){
+            $scope.totalsum += $scope.eachsum[k];
+        }
+        
+    }
+    $scope.deleteItem = function(index){
+        $scope.itemlist.splice(index,1);
+        $scope.eachsum.splice(index,1);
+        $scope.totalsum=0;
+        for(var k=0;k<$scope.eachsum.length;k++){
+            $scope.totalsum += $scope.eachsum[k];
+        }
+    }
+    $scope.updateTotal = function(){
+        $scope.totalItemPrice = parseInt($cookies.get("price").replace(/\,/g,''));
+        $scope.totalItemPrice += $scope.totalsum;
+    }
 });
 
 app.controller('PensionPostsCtrlAjax', function($scope, $http){
@@ -63,7 +87,7 @@ app.controller('PensionSelected',function($scope,$http,$cookies){
         $cookies.put("price", $scope.pensionprice);
     };
     $scope.addSum = function(p) {
-        $scope.pensionprice = p.cost;
+        $scope.pensionprice = p.cost.replace(/\,/g,'');
         $scope.sum += $scope.pensionprice;
     };
 });
